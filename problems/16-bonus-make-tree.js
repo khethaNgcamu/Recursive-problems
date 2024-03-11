@@ -65,6 +65,13 @@ The call above should return the tree below:
 
 const makeTree = (categories, parent) => {
   // your code here
+  const node = {};
+  categories
+      .filter(category => category.parent === parent) // Filter categories with matching parent
+      .forEach(category => {
+          node[category.id] = makeTree(categories, category.id); // Recursively construct subtree
+      });
+  return node;
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
