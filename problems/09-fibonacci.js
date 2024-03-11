@@ -20,6 +20,16 @@ fibonacci(10); // 55
 ***********************************************************************/
 
 // your code here
+function fabonacci(n){
+     // Base case: if n is 0 or 1, return n
+     if (n === 0) {
+      return 0;
+  } else if (n === 1) {
+      return 1;
+  }
+  // Recursive case: return the sum of the previous two Fibonacci numbers
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
