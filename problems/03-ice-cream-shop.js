@@ -14,7 +14,17 @@ iceCreamShop([], 'honey lavender'); // false
 
 
 // your code here
-
+function iceCreamShop(flavors, favorite){
+  if (flavors.length === 0) {
+    return false;
+}
+// Check if the first flavor is the favorite flavor
+if (flavors[0] === favorite) {
+    return true;
+}
+// Recursively search in the rest of the flavors array
+return iceCreamShop(flavors.slice(1), favorite);
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
