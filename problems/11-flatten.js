@@ -11,6 +11,17 @@ flatten([1, [2, [3]]]); // [1, 2, 3]
 ***********************************************************************/
 
 // your code here
+function flatten(array){
+  let flattened = [];
+  arr.forEach(item => {
+      if (Array.isArray(item)) {
+          flattened = flattened.concat(flatten(item));
+      } else {
+          flattened.push(item);
+      }
+  });
+  return flattened;
+}
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
