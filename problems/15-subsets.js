@@ -15,6 +15,23 @@ Hint: For subsets([1, 2, 3]), there are two kinds of subsets:
 ***********************************************************************/
 
 // your code here
+function subsets(arr) {
+  if (arr.length === 0) {
+      return [[]]; // Base case: empty array has one subset, the empty array itself
+  }
+
+  const first = arr[0]; // Take the first element of the array
+  const rest = arr.slice(1); // Get the rest of the array
+
+  // Recursively generate subsets without the first element
+  const withoutFirst = subsets(rest);
+  
+  // For each subset without the first element, include the first element and add it to the result
+  const withFirst = withoutFirst.map(subset => [first, ...subset]);
+
+  // Combine subsets without the first element with subsets with the first element
+  return withoutFirst.concat(withFirst);
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
