@@ -40,8 +40,25 @@ times `advancedExponent` is being recursively called.
 ***********************************************************************/
 
 
-function advancedExponent(b, n) {
+function advancedExponent(num, power) {
   // your code here
+  if (power === 0) {
+    return 1;
+}
+// Base case: if power is 1, return num
+if (power === 1) {
+    return num;
+}
+// Recursive case: if power is even
+if (power % 2 === 0) {
+    let halfPower = exponent(num, power / 2);
+    return halfPower * halfPower;
+}
+// Recursive case: if power is odd
+if (power % 2 !== 0) {
+    let halfPower = exponent(num, (power - 1) / 2);
+    return num * halfPower * halfPower;
+}
 }
 
 
