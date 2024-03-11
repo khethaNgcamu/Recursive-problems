@@ -22,6 +22,17 @@ exponent(5, 5); // 3125
 
 function exponent(b, n) {
   // your code here
+  if(n === 0){
+    return 1;
+  }
+
+  if(n > 0){
+    return b * exponent(b, n - 1);
+  }
+  
+  if(n < 0){
+    return 1 / (b * exponent(b, n - 1));
+  }
 }
   
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
