@@ -11,6 +11,14 @@ isSorted([5, 4, 3, 2, 1]); // false
 ***********************************************************************/
 
 // your code here
+function isSorted(array){
+  if (arr.length <= 1) {
+    return true;
+}
+// Recursive case: check if the first element is less than or equal to the second element
+// and recursively call isSorted on the rest of the array
+return arr[0] <= arr[1] && isSorted(arr.slice(1));
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
