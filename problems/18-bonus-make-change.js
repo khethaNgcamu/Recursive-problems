@@ -56,10 +56,38 @@ combinations.
 function greedyMakeChange(target, coins = [25, 10, 5, 1]) {
   // no tests for greedyMakeChange so make sure to test this on your own
   // your code here
+  coins.sort((a, b) => b - a);
+    
+  const change = [];
+  for (const coin of coins) {
+      while (amount >= coin) {
+          change.push(coin);
+          amount -= coin;
+      }
+  }
+  
+  return amount === 0 ? change : null;
 }
 
-function makeBetterChange(target, coins = [25, 10, 5, 1]) {
+function makeBetterChange(amount, coins = [25, 10, 5, 1]) {
   // your code here
+  if (amount === 0) return []; // Base case: no change needed
+    
+  let bestChange = null;
+  
+  for (let i = 0; i < coins.length; i++) {
+      const coin = coins[i];
+      if (coin > amount) continue; // Skip coins larger than amount
+      
+      const remaining = amount - coin;
+      const change = makeBetterChange(remaining, coins.slice(i)); // Recursively find change for the remaining amount
+      
+      if (change !== null && (bestChange === null || change.length + 1 < bestChange.length)) {
+          bestChange = [coin, ...change];
+      }
+  }
+  
+  return bestChange;
 }
 
 
